@@ -46,7 +46,7 @@ export default function WidgetPage() {
 
     const connect = async () => {
       try {
-        const response = await axios.get<PublicUserInfo>(`http://localhost:8080/auth/public/${slug}`)
+        const response = await axios.get<PublicUserInfo>(`https://falaqeuteescuto-backend.onrender.com/auth/public/${slug}`)
         const userInfo = response.data
 
         if (!isMounted) return

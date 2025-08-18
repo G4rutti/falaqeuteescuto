@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://localhost:8080"
+export const API_BASE_URL = "https://falaqeuteescuto-backend.onrender.com"
 
 export const ROUTES = {
   HOME: "/",
@@ -8,4 +8,4 @@ export const ROUTES = {
   STREAMER: (slug: string) => `/${slug}`,
 } as const
 
-export const WEBSOCKET_URL = "ws://localhost:8080/ws"
+export const WEBSOCKET_URL = "wss://falaqeuteescuto-backend.onrender.com/ws"

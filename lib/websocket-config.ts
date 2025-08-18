@@ -1,5 +1,5 @@
 export const websocketConfig = {
-  url: "http://localhost:8080/ws",
+  url: "https://falaqeuteescuto-backend.onrender.com/ws",
   reconnectInterval: 5000,
   reconnectAttempts: 5,
   heartbeatInterval: 30000,

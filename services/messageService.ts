@@ -2,7 +2,7 @@ import axios from "axios"
 import type { MessageResponseDTO } from "@/types/message"
 import { config } from "@/lib/config"
 
-const API_URL = "http://localhost:8080" // Ou use uma variável de ambiente
+const API_URL = "https://falaqeuteescuto.vercel.app" // Ou use uma variável de ambiente
 
 interface SendMessagePayload {
   text: string

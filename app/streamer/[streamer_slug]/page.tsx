@@ -37,6 +37,7 @@ export default function StreamerPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [streamerInfo, setStreamerInfo] = useState<StreamerInfo>({
     name: streamerSlug.charAt(0).toUpperCase() + streamerSlug.slice(1),
     slug: streamerSlug,

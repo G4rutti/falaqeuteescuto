@@ -63,7 +63,7 @@ export default function SignupPage() {
         slug: data.slug,
         password: data.password,
       })
-      login(response.token, response.user)
+      login(response.token, response.slug, response.email)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao criar conta")
     } finally {

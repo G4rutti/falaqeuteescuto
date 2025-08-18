@@ -61,6 +61,7 @@ export default function DashboardPage() {
     return () => {
       webSocketService.disconnect()
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, token])
 
   const connectWebSocket = async () => {
@@ -120,6 +121,7 @@ export default function DashboardPage() {
           // Ignore audio play errors (user interaction required)
         })
       } catch (error) {
+        console.error(error)
         // Ignore audio errors
       }
     }

@@ -34,7 +34,7 @@ class WebSocketService {
       try {
         // Criar cliente STOMP
         this.client = new Client({
-          webSocketFactory: () => new SockJS("/ws"),
+          webSocketFactory: () => new SockJS(websocketConfig.url),
 
           // =======================================================
           // PARTE MAIS IMPORTANTE: ENVIAR O TOKEN DE AUTENTICAÇÃO

@@ -1,103 +1,207 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Mic, Zap, BarChart3, Users, MessageSquare, Sparkles } from "lucide-react"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <Mic className="h-8 w-8 text-primary" />
+              <span className="text-xl font-bold text-foreground">Fala Que Te Escuto</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Link href="/login">
+                <Button variant="ghost" className="text-foreground hover:text-primary">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button className="bg-primary hover:bg-accent text-primary-foreground">Comece Agora</Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-card">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="text-center">
+            <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary border-primary/20">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Plataforma de Streaming Moderna
+            </Badge>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
+              Dê voz à sua{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">audiência</span>{" "}
+              em tempo real
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+              Transforme mensagens dos seus espectadores em alertas dinâmicos durante suas transmissões. Uma experiência
+              interativa que conecta você ao seu público como nunca antes.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/signup">
+                <Button size="lg" className="bg-primary hover:bg-accent text-primary-foreground px-8 py-6 text-lg">
+                  <Zap className="w-5 h-5 mr-2" />
+                  Cadastre-se Gratuitamente
+                </Button>
+              </Link>
+              <Link href="/streamer/exemplo">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-primary/20 text-foreground hover:bg-primary/10 px-8 py-6 text-lg bg-transparent"
+                >
+                  Ver Demonstração
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24 bg-card/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Funcionalidades Poderosas</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Tudo que você precisa para criar uma experiência de streaming interativa e envolvente
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="bg-card border-border/40 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <MessageSquare className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="text-foreground">Interação em Tempo Real</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Mensagens dos espectadores aparecem instantaneamente como alertas durante sua transmissão
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="bg-card border-border/40 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                  <Sparkles className="w-6 h-6 text-accent" />
+                </div>
+                <CardTitle className="text-foreground">Alertas Personalizados</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Customize a aparência e o som dos alertas para combinar com o estilo do seu canal
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="bg-card border-border/40 hover:border-primary/40 transition-colors">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <BarChart3 className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="text-foreground">Análise de Engajamento</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Acompanhe estatísticas detalhadas sobre a interação do seu público
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Como Funciona</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Três passos simples para começar a interagir com sua audiência
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-primary">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Cadastre-se</h3>
+              <p className="text-muted-foreground">Crie sua conta e configure seu perfil de streamer em minutos</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-accent">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Configure</h3>
+              <p className="text-muted-foreground">
+                Personalize seus alertas e compartilhe sua URL /streamer/seucanal com a audiência
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-primary">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-4">Interaja</h3>
+              <p className="text-muted-foreground">Receba mensagens em tempo real e engaje com sua audiência</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <Users className="w-16 h-16 text-primary mx-auto mb-6" />
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
+            Pronto para revolucionar suas transmissões?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            Junte-se a centenas de streamers que já estão usando nossa plataforma para criar experiências únicas
+          </p>
+          <Link href="/signup">
+            <Button size="lg" className="bg-primary hover:bg-accent text-primary-foreground px-8 py-6 text-lg">
+              <Zap className="w-5 h-5 mr-2" />
+              Comece Gratuitamente Agora
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/40 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center gap-2 mb-4 md:mb-0">
+              <Mic className="h-6 w-6 text-primary" />
+              <span className="text-lg font-semibold text-foreground">Fala Que Te Escuto</span>
+            </div>
+            <div className="flex items-center gap-6">
+              <Link href="/login" className="text-muted-foreground hover:text-primary transition-colors">
+                Login
+              </Link>
+              <Link href="/signup" className="text-muted-foreground hover:text-primary transition-colors">
+                Cadastro
+              </Link>
+              <Link href="/support" className="text-muted-foreground hover:text-primary transition-colors">
+                Suporte
+              </Link>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-border/40 text-center">
+            <p className="text-muted-foreground">© 2024 Fala Que Te Escuto. Todos os direitos reservados.</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }

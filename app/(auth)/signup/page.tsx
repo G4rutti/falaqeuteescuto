@@ -13,6 +13,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Mic, Eye, EyeOff, Check } from "lucide-react"
 import { authService } from "@/services/auth"
 import { useAuth } from "@/lib/auth-hook"
+import { useRouter } from "next/navigation"
 
 const signupSchema = z
   .object({
@@ -38,7 +39,7 @@ export default function SignupPage() {
   const [error, setError] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const { login } = useAuth()
+  const router = useRouter()
 
   const {
     register,
@@ -56,19 +57,23 @@ export default function SignupPage() {
     setIsLoading(true)
     setError("")
 
-    try {
       const response = await authService.signup({
         name: data.name,
         email: data.email,
         slug: data.slug,
         password: data.password,
       })
-      login(response.token, response.slug, response.email)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Erro ao criar conta")
-    } finally {
+
+      if(!response.ok){
+        setError("Erro no cadastro")
+        setIsLoading(false)
+        return
+      }
+
       setIsLoading(false)
-    }
+      router.push("/login")
+      return
+      
   }
 
   const getPasswordStrength = (password: string) => {

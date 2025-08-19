@@ -12,7 +12,6 @@ import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, Mic, Eye, EyeOff, Check } from "lucide-react"
 import { authService } from "@/services/auth"
-import { useAuth } from "@/lib/auth-hook"
 import { useRouter } from "next/navigation"
 
 const signupSchema = z

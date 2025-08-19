@@ -1,6 +1,6 @@
 export const config = {
   api: {
-    baseUrl: "https://falaqeuteescuto-backend.onrender.com",
+    baseUrl: process.env.NEXT_PUBLIC_BACKEND_URL || "https://falaqeuteescuto-backend.onrender.com",
     endpoints: {
       auth: {
         login: "/auth/login",
